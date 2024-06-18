@@ -1,0 +1,18 @@
+{
+    "rewrites": [
+        {
+            "source": "/share/(.*)",
+            "destination": "/api/share-page.ts"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/"
+        }
+    ],
+    "functions": {
+        "api/share.ts": {
+            "memory": 1024,
+            "maxDuration": 10
+        }
+    }
+}

@@ -1,0 +1,116 @@
+@import "./syntax-highlight.css";
+@import "./sidebar-overlay-transition.css";
+@import "./scroll-button-transition.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 100%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 100%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 100%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+
+    --sidebar: 0, 0%, 94%;
+    --sidebar-width: 270px;
+    --menu-offset-distance: calc(3rem + var(--sidebar-width));
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 0, 0%, 0%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --sidebar: 0, 0%, 17%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  .shortcut-item {
+    @apply flex items-center justify-between;
+  }
+
+  .kbds {
+    @apply flex items-center gap-2;
+  }
+
+  .close-button {
+    @apply h-3 w-1 rounded-full bg-slate-500 transition-all duration-200 group-hover:bg-slate-400 dark:group-hover:bg-white;
+  }
+
+  .sidebar-menu-width {
+    width: calc(theme(width.sidebar) - theme(spacing.3));
+  }
+
+  .command-name {
+    @apply overflow-hidden overflow-ellipsis whitespace-nowrap pr-2;
+  }
+
+  .usage-item {
+    @apply flex w-full justify-between;
+  }
+
+  .total-item {
+    @apply flex w-full justify-between py-0.5;
+  }
+
+  .context-menu-item {
+    @apply hover:!bg-sidebar;
+  }
+
+  .hovering {
+    @apply !transition !duration-200 hover:!bg-primary hover:!text-white dark:hover:!bg-white dark:hover:!text-black;
+  }
+}
+
+th {
+  text-align: left;
+}
+
+html,
+body,
+#app {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}

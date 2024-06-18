@@ -1,0 +1,167 @@
+{
+    "translation": {
+        "common": {
+            "title": "ChatGPT",
+            "remove": "Kaldır",
+            "rename": "Yeniden Adlandır",
+            "save": "Kaydet",
+            "cancel": "İptal",
+            "chat": "Sohbet",
+            "copyCode": "Kodu Kopyala",
+            "copyCodeSuccess": "Kod kopyalandı",
+            "copySuccess": "Panoya kopyalandı",
+            "temperature": "Sıcaklık",
+            "copy": "Kopyala",
+            "play": "Oynat",
+            "download": "İndir",
+            "close": "Kapat",
+            "speed": "Hız",
+            "ok": "Tamam",
+            "retry": "Yeniden Oluştur",
+            "you": "Siz",
+            "edit": "Düzeltme",
+            "size": "Boyut",
+            "fileTooLarge": "Dosya çok büyük",
+            "removeImage": "Resmi kaldır",
+            "returnImage": "Resmi geri getir",
+            "share": "Paylaş",
+            "selectText": "Metni seç",
+            "online": "Cevaplanıyor",
+            "price": "Fiyat",
+            "saveKey": {
+                "label": "Anahtarı Kaydet",
+                "tooltip": "API anahtarınızı daha sonra kullanmak üzere localStorage'da saklar."
+            },
+            "next": {
+                "label": "İleri",
+                "tooltip": "Bir sonraki adıma geçin."
+            }
+        },
+        "index": {
+            "placeholder": "ChatGPT API anahtarınızı girin.",
+            "invalidKey": "Geçersiz API anahtarı",
+            "next": "İleri"
+        },
+        "chat": {
+            "welcome": "Bugün size nasıl yardımcı olabilirim?",
+            "disclaimer": "ChatGPT hatalar yapabilir. Önemli bilgileri doğrulamanızı öneririz.",
+            "placeholder": "ChatGPT'ye mesaj...",
+            "newChat": "Yeni Sohbet",
+            "send": "Gönder",
+            "close": "Yan paneli kapat",
+            "open": "Yan paneli aç",
+            "uploadFile": "Dosya Yükle",
+            "onlyGPTVision": "Yalnızca gpt-4-vision-preview modeliyle",
+            "chatSize": "Sohbet boyutu"
+        },
+        "sidebar": {
+            "logout": "Çıkış Yap",
+            "profile": "Profil",
+            "settings": "Ayarlar",
+            "customInstructions": "ChatGPT'yi Özelleştir",
+            "more": "Daha Fazla"
+        },
+        "instruction": {
+            "title": "Düşünceye Sevk Eden Bilgiler",
+            "showHints": "İpuçlarını Göster",
+            "hideHints": "İpuçlarını Gizle",
+            "description": "Özel Talimatlar",
+            "tooltip": {
+                "link": "Daha fazla bilgi edinin",
+                "text": " özel talimatlar ve bunların ChatGPT'nin daha doğru yanıtlar oluşturmasına nasıl yardımcı olduğu hakkında."
+            },
+            "enableForNew": "Yeni sohbetler için etkinleştir",
+            "gptDescription": "ChatGPT'nin yanıtlarıyla ilgili isteklerinizi anlatın.",
+            "userDescription": "ChatGPT'nin daha doğru yanıtlar verebilmesi için sizin hakkınızda neleri bilmesi gerekiyor?",
+            "user": [
+                "Nerelisiniz?",
+                "Ne iş yapıyorsunuz?",
+                "Hobileriniz ve ilgi alanlarınız nelerdir?",
+                "Hangi konularda saatlerce konuşabilirsiniz?",
+                "Kişisel hedefleriniz nelerdir?"
+            ],
+            "gpt": [
+                "ChatGPT'nin üslubu ne kadar resmi veya gayri resmi olmalı?",
+                "Yanıtlar ne kadar uzun veya kısa olmalı?",
+                "Size nasıl hitap edilmeli?",
+                "ChatGPT'nin çeşitli konularda kendi görüşü olabilir mi yoksa ChatGPT tarafsız mı kalmalı?"
+            ]
+        },
+        "settings": {
+            "title": "Ayarlar",
+            "language": "Dil",
+            "clearHistory": "Geçmişi Temizle",
+            "clear": "Temizle",
+            "back": "Geri",
+            "clearHistoryConfirm": "Bu, tüm sohbet geçmişini kalıcı olarak silecektir",
+            "clearHistoryAtLogout": "Çıkışta sohbet geçmişini temizle",
+            "clearAudioCacheAtLogout": "Çıkarken ses önbelleğini temizle",
+            "scrollWhenResponding": "Yanıt verirken otomatik kaydırma",
+            "theme": {
+                "label": "Tema",
+                "mode": {
+                    "dark": "Karanlık",
+                    "light": "Aydınlık",
+                    "system": "Sistem"
+                }
+            }
+        },
+        "record": {
+            "title": "Kayıt",
+            "stop": "Durdur",
+            "pause": "Duraklat",
+            "resume": "Devam Et"
+        },
+        "errors": {
+            "insufficient_quota": "Mevcut kotanızı aştınız, lütfen tarife planınızı ve ödeme bilgilerinizi kontrol edin",
+            "invalid_request_error": "Geçersiz API anahtarı sağlandı",
+            "server_error": "Geçersiz yetkilendirme başlığı",
+            "default": "Bir hata oluştu",
+            "networkError": "Baglantı hatası",
+            "tokkens": "Bir hata oluştu. Luçen bütün tokenleri ayarlayın"
+        },
+        "share": {
+            "title": "Sohbetinizi paylaş",
+            "copyLink": "Baglantıyı kopyala",
+            "continueChat": "Sohbeti devam edin",
+            "linkNotFound": "Baglantı bulunamadı"
+        },
+        "shortcuts": {
+            "title": "Klavye Kısayolları",
+            "openNewChat": "Yeni sohbet aç",
+            "removeChat": "Sohbeti sil",
+            "inputFocus": "Sohbet girişi odaklan",
+            "toggleSidebar": "Kenar çubuğunu değiştir",
+            "setUserInstructions": "Kullanıcı talimatlarını belirle",
+            "showShortcuts": "Kısayolları göster",
+            "share": "Paylaş"
+        },
+        "usage": {
+            "title": "İstatistik Özeti",
+            "shortTitle": "İstatistik",
+            "response": "Cevap",
+            "prompt": "İstek",
+            "total": "Toplam",
+            "name": "Sohbet Adı",
+            "openFullUsage": "Tam İstatistik",
+            "costOfUse": "Kullanım Maliği",
+            "price": {
+                "title": "Fiyatlar",
+                "description": "Fiyatlar 1M jetonlar için belirtilmiştir",
+                "tokens": "Jeton Fiyatı",
+                "table": {
+                    "model": "Model",
+                    "input": "Girdi",
+                    "output": "Çıktı"
+                }
+            },
+            "table": {
+                "title": "Başlık",
+                "name": "Ad",
+                "total": "Toplam",
+                "prompt": "İstek",
+                "response": "Yanıt"
+            }
+        }
+    }
+}

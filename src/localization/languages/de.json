@@ -1,0 +1,167 @@
+{
+    "translation": {
+        "common": {
+            "title": "ChatGPT",
+            "remove": "Entfernen",
+            "rename": "Umbenennen",
+            "save": "Speichern",
+            "cancel": "Abbrechen",
+            "chat": "Chat",
+            "copyCode": "Code kopieren",
+            "copyCodeSuccess": "Code kopiert",
+            "copySuccess": "In die Zwischenablage kopiert",
+            "temperature": "Temperatur",
+            "copy": "Kopieren",
+            "play": "Abspielen",
+            "download": "Herunterladen",
+            "close": "Schließen",
+            "speed": "Geschwindigkeit",
+            "ok": "Ok",
+            "retry": "Erneut generieren",
+            "you": "Sie",
+            "edit": "Redigieren",
+            "size": "Größe",
+            "fileTooLarge": "Datei ist zu groß",
+            "removeImage": "Bild entfernen",
+            "returnImage": "Bild zurückholen",
+            "share": "Teilen",
+            "selectText": "Text auswählen",
+            "online": "Online",
+            "price": "Preis",
+            "saveKey": {
+                "label": "Schlüssel speichern",
+                "tooltip": "Speichert Ihren API-Schlüssel im localStorage zur späteren Verwendung."
+            },
+            "next": {
+                "label": "Weiter",
+                "tooltip": "Weiter zum nächsten Schritt."
+            }
+        },
+        "index": {
+            "placeholder": "Geben Sie Ihren ChatGPT-API-Schlüssel ein.",
+            "invalidKey": "Ungültiger API-Schlüssel",
+            "next": "Weiter"
+        },
+        "chat": {
+            "welcome": "Wie kann ich Ihnen heute helfen?",
+            "disclaimer": "ChatGPT kann Fehler machen. Wir empfehlen, wichtige Informationen zu überprüfen.",
+            "placeholder": "Nachricht an ChatGPT...",
+            "newChat": "Neuer Chat",
+            "send": "Senden",
+            "close": "Seitenleiste schließen",
+            "open": "Seitenleiste öffnen",
+            "uploadFile": "Datei hochladen",
+            "onlyGPTVision": "Nur mit gpt-4-vision-preview-Modell",
+            "chatSize": "Chatgröße"
+        },
+        "sidebar": {
+            "logout": "Abmelden",
+            "profile": "Profil",
+            "settings": "Einstellungen",
+            "customInstructions": "ChatGPT anpassen",
+            "more": "Mehr"
+        },
+        "instruction": {
+            "title": "Denkanstöße",
+            "showHints": "Hinweise anzeigen",
+            "hideHints": "Hinweise ausblenden",
+            "description": "Benutzerdefinierte Anweisungen",
+            "tooltip": {
+                "link": "Erfahren Sie mehr",
+                "text": " über benutzerdefinierte Anweisungen und wie sie ChatGPT helfen, genauere Antworten zu formulieren."
+            },
+            "enableForNew": "Für neue Chats aktivieren",
+            "gptDescription": "Erzählen Sie uns von Ihren Wünschen bezüglich der Antworten von ChatGPT.",
+            "userDescription": "Was sollte ChatGPT über Sie wissen, um genauere Antworten zu liefern?",
+            "user": [
+                "Wo befinden Sie sich?",
+                "Was arbeiten Sie?",
+                "Was sind Ihre Hobbys und Interessen?",
+                "Über welche Themen können Sie stundenlang sprechen?",
+                "Was sind Ihre persönlichen Ziele?"
+            ],
+            "gpt": [
+                "Wie formell oder informell soll der Ton von ChatGPT sein?",
+                "Wie lang oder kurz sollen die Antworten sein?",
+                "Wie soll ich Sie ansprechen?",
+                "Darf ChatGPT eine eigene Meinung zu verschiedenen Themen haben oder soll es neutral bleiben?"
+            ]
+        },
+        "settings": {
+            "title": "Einstellungen",
+            "language": "Sprache",
+            "clearHistory": "Chatverlauf löschen",
+            "clear": "Löschen",
+            "back": "Zurück",
+            "clearHistoryConfirm": "Dadurch wird der gesamte Chatverlauf unwiderruflich gelöscht",
+            "clearHistoryAtLogout": "Chat-Verlauf beim Beenden löschen",
+            "clearAudioCacheAtLogout": "Leeren Sie den Audio-Cache beim Beenden",
+            "scrollWhenResponding": "Automatisches Scrollen bei Beantwortung",
+            "theme": {
+                "label": "Thema",
+                "mode": {
+                    "dark": "Dunkel",
+                    "light": "Hell",
+                    "system": "System"
+                }
+            }
+        },
+        "record": {
+            "title": "Aufnahme",
+            "stop": "Beenden",
+            "pause": "Pause",
+            "resume": "Fortsetzen"
+        },
+        "errors": {
+            "insufficient_quota": "Sie haben Ihr aktuelles Kontingent überschritten, bitte überprüfen Sie Ihren Tarif und Ihre Zahlungsdaten",
+            "invalid_request_error": "Ungültig bereitgestellter API-Schlüssel",
+            "server_error": "Ungültiger Autorisierungs-Header",
+            "default": "Ein Fehler ist aufgetreten",
+            "networkError": "Netzwerkfehler",
+            "tokens": "Tokenlimit ueberschritten"
+        },
+        "share": {
+            "title": "Link zum Chat teilen",
+            "copyLink": "Link kopieren",
+            "continueChat": "Chat fortsetzen",
+            "linkNotFound": "Link nicht gefunden"
+        },
+        "shortcuts": {
+            "title": "Tastenkombinationen",
+            "openNewChat": "Neuen Chat öffnen",
+            "removeChat": "Chat löschen",
+            "inputFocus": "Chat-Eingabe fokussieren",
+            "toggleSidebar": "Seitenleiste umschalten",
+            "setUserInstructions": "Benutzeranweisungen festlegen",
+            "showShortcuts": "Tastenkombinationen anzeigen",
+            "share": "Teilen"
+        },
+        "usage": {
+            "title": "Statistik Übersicht",
+            "shortTitle": "Statistik",
+            "response": "Antwort",
+            "prompt": "Prompt",
+            "total": "Gesamt",
+            "name": "Chatname",
+            "openFullUsage": "Vollständige Statistik",
+            "costOfUse": "Kosten der Verwendung",
+            "price": {
+                "title": "Preise",
+                "description": "Preise sind für 1M Token angegeben",
+                "tokens": "Tokenpreis",
+                "table": {
+                    "model": "Modell",
+                    "input": "Eingabe",
+                    "output": "Ausgabe"
+                }
+            },
+            "table": {
+                "title": "Überschrift",
+                "name": "Name",
+                "total": "Gesamt",
+                "prompt": "Aufforderung",
+                "response": "Antwort"
+            }
+        }
+    }
+}

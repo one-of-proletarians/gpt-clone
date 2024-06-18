@@ -1,0 +1,27 @@
+:root {
+  --transition: 400ms;
+}
+
+.button-enter {
+  opacity: 0;
+  transform: translateX(21px) translateY(200px) scale(0.01) !important;
+}
+
+.button-enter-done,
+.button-enter-active {
+  opacity: 1;
+  transform: translateX(21px) translateY(0) scale(1) !important;
+  transition: var(--transition) linear !important;
+}
+
+.button-exit {
+  opacity: 1;
+  transform: translateX(21px) translateY(0) scale(1) !important;
+}
+
+.button-exit-done,
+.button-exit-active {
+  opacity: 0;
+  transform: translateX(21px) translateY(200px) scale(0.01) !important;
+  transition: var(--transition) linear !important;
+}
