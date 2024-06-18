@@ -59,8 +59,9 @@ export async function GET(request: Request) {
     const id = getID(request.url);
 
     const findResult = await share.findOne({ _id: new ObjectId(id!) });
-    const description = getDescription(findResult!.data.messages);
     const preview = getPreviewURL(findResult!.data.messages);
+    const description =
+      findResult?.description || getDescription(findResult!.data.messages);
 
     $(`meta[property="og:title"]`).attr("content", findResult!.data.title);
     $(`meta[property="og:description"]`).attr("content", description);
