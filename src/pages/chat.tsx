@@ -123,7 +123,10 @@ export const ChatPage: FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chatId, isMobile]);
 
-  useEffect(() => setMessage(transcript), [transcript]);
+  useEffect(() => {
+    setMessage(transcript);
+    textareaRef.current?.focus();
+  }, [transcript]);
 
   useEffect(() => {
     if (response) {
