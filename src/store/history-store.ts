@@ -70,7 +70,11 @@ export const useHistoryChat = create<HistoryStore>()(
               hasCustomInstructions: _.includeForNewChat,
               title: `Chat ${Object.keys(store.chats).length + 1}`,
               messages: [
-                { role: "system", content: "response type is markdown" },
+                {
+                  role: "system",
+                  content:
+                    "response type is markdown, use mathematical expressions in $$math$$ or $inline math$, don't use it to format functions []",
+                },
                 ...instructions,
               ],
               date: new Date(),

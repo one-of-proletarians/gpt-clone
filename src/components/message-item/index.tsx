@@ -45,6 +45,10 @@ import { useMobile } from "@/hooks/useMobile";
 import { Logo } from "../logo";
 import { useNetworkStatus } from "@/hooks/useNetworkStatus";
 
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import "katex/dist/katex.min.css";
+
 interface MessageProps {
   role: ChatCompletionMessageParam["role"];
   content: ChatCompletionMessageParam["content"];
@@ -197,7 +201,8 @@ export const MessageItem = memo<MessageProps>(
                   <>
                     <Markdown
                       className="prose max-w-full leading-5 dark:prose-invert sm:leading-6"
-                      remarkPlugins={[remarkGfm]}
+                      remarkPlugins={[remarkGfm, remarkMath]}
+                      rehypePlugins={[rehypeKatex]}
                       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                       // @ts-ignore
                       components={{ code, pre, a }}
