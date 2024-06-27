@@ -258,7 +258,11 @@ export const ChatPage: FC = () => {
       >
         <Sidebar open={open} onToggle={setOpen} />
 
-        <div className="flex h-full w-full flex-col">
+        <div
+          className={cn("flex h-full w-full flex-col transition-transform", {
+            "translate-x-10 scale-95": open && isMobile,
+          })}
+        >
           <div className="flex max-w-[100vw] flex-row-reverse items-center justify-between gap-2 p-2 md:flex-row md:justify-normal">
             <div className="flex gap-1">
               <Button
