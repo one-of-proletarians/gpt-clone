@@ -51,5 +51,5 @@ export const useInstruction = create<InstructionStore>()(
 
 export function shouldCreateTitle(): boolean {
   const chatId = getChatId()!;
-  return !useHistoryChat.getState().chats[chatId]?.tokenCount ?? 0;
+  return !useHistoryChat.getState().chats[chatId]?.tokenCount;
 }
