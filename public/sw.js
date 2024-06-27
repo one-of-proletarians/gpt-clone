@@ -1,5 +1,5 @@
 // const CACHE_NAME = Math.random().toString(36);
-const CACHE_NAME = "cache-v11";
+const CACHE_NAME = "cache-v12";
 
 const urlsToCache = ["/", "/index.html"];
 
