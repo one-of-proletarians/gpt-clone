@@ -42,12 +42,12 @@ import {
   ContextMenuTrigger,
 } from "@/components/ui/context-menu";
 import { useMobile } from "@/hooks/useMobile";
-import { Logo } from "../logo";
 import { useNetworkStatus } from "@/hooks/useNetworkStatus";
+import { Logo } from "../logo";
 
-import remarkMath from "remark-math";
-import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
+import rehypeKatex from "rehype-katex";
+import remarkMath from "remark-math";
 
 interface MessageProps {
   role: ChatCompletionMessageParam["role"];
