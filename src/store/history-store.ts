@@ -73,7 +73,7 @@ export const useHistoryChat = create<HistoryStore>()(
                 {
                   role: "system",
                   content:
-                    "response type is markdown, use mathematical expressions in $$math$$ or $inline math$, don't use it to format functions []",
+                    "Respond using markdown. Use $$math$$ for block mathematical expressions and $inline math$ for inline math expressions. Do not use this format to style or format functions [].",
                 },
                 ...instructions,
               ],
