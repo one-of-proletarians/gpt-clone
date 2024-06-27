@@ -22,7 +22,7 @@ export const useSettings = create<SettingsState>()(
         cache: true,
       },
 
-      scrollWhenResponding: true,
+      scrollWhenResponding: false,
 
       setScrollWhenResponding: (scroll) =>
         set({ scrollWhenResponding: scroll }),
