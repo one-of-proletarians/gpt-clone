@@ -96,6 +96,7 @@
       "clearHistoryConfirm": "Это без возвратно удалит всю историю чатов",
       "clearHistoryAtLogout": "Очистить историю чатов при выходе",
       "clearAudioCacheAtLogout": "Очистить кэш аудио при выходе",
+      "clearUsage": "Очистить статистику использование",
       "scrollWhenResponding": "Автоматическая прокрутка при ответе",
       "theme": {
         "label": "Тема",

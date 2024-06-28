@@ -96,6 +96,7 @@
             "clearHistoryConfirm": "Bu, tüm sohbet geçmişini kalıcı olarak silecektir",
             "clearHistoryAtLogout": "Çıkışta sohbet geçmişini temizle",
             "clearAudioCacheAtLogout": "Çıkarken ses önbelleğini temizle",
+            "clearUsage": "Kullanımı Temizle",
             "scrollWhenResponding": "Yanıt verirken otomatik kaydırma",
             "theme": {
                 "label": "Tema",
