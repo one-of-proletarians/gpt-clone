@@ -134,7 +134,8 @@
             "toggleSidebar": "Toggle Sidebar",
             "setUserInstructions": "Set User Instructions",
             "showShortcuts": "Show Shortcuts",
-            "share": "Share"
+            "share": "Share",
+            "voiceInput": "Voice Input"
         },
         "usage": {
             "title": "Statistics Summary",

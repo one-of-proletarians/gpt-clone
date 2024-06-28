@@ -134,7 +134,8 @@
             "toggleSidebar": "Seitenleiste umschalten",
             "setUserInstructions": "Benutzeranweisungen festlegen",
             "showShortcuts": "Tastenkombinationen anzeigen",
-            "share": "Teilen"
+            "share": "Teilen",
+            "voiceInput": "Spracheingabe"
         },
         "usage": {
             "title": "Statistik Übersicht",

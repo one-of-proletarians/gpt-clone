@@ -134,7 +134,8 @@
             "toggleSidebar": "Kenar çubuğunu değiştir",
             "setUserInstructions": "Kullanıcı talimatlarını belirle",
             "showShortcuts": "Kısayolları göster",
-            "share": "Paylaş"
+            "share": "Paylaş",
+            "voiceInput": "Ses girişi"
         },
         "usage": {
             "title": "İstatistik Özeti",
