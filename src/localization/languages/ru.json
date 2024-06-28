@@ -97,6 +97,7 @@
       "clearHistoryAtLogout": "Очистить историю чатов при выходе",
       "clearAudioCacheAtLogout": "Очистить кэш аудио при выходе",
       "clearUsage": "Очистить статистику использование",
+      "clearUsageConfirm": "Это без возвратно удалит статистику использования",
       "scrollWhenResponding": "Автоматическая прокрутка при ответе",
       "theme": {
         "label": "Тема",

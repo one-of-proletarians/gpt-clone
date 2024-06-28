@@ -97,6 +97,7 @@
             "clearHistoryAtLogout": "Chat-Verlauf beim Beenden löschen",
             "clearAudioCacheAtLogout": "Leeren Sie den Audio-Cache beim Beenden",
             "clearUsage": "Verwendung löschen",
+            "clearUsageConfirm": "Dadurch wird die gesamte Verwendung unwiderruflich gelöscht",
             "scrollWhenResponding": "Automatisches Scrollen bei Beantwortung",
             "theme": {
                 "label": "Thema",

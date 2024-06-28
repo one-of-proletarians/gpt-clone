@@ -97,6 +97,7 @@
             "clearHistoryAtLogout": "Clear the chat history when exiting",
             "clearAudioCacheAtLogout": "Clear the audio cache on exit",
             "clearUsage": "Clear Usage",
+            "clearUsageConfirm": "This will permanently delete all usage data",
             "scrollWhenResponding": "Automatic scrolling when responding",
             "theme": {
                 "label": "Theme",
