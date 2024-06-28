@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Button, ButtonProps } from "@/components/ui/button";
 import { FC, PropsWithChildren } from "react";
+import { useTranslation } from "react-i18next";
 
 interface AlertProps extends PropsWithChildren {
   description?: string;
@@ -23,11 +24,12 @@ interface AlertProps extends PropsWithChildren {
 }
 
 export const AlertButton: FC<AlertProps> = (props) => {
+  const { t } = useTranslation();
   const {
     title,
     description,
-    cancelText = "Cancel",
-    okText = "OK",
+    cancelText = t("common.cancel"),
+    okText = t("common.ok"),
     children,
     variant,
   } = props;
