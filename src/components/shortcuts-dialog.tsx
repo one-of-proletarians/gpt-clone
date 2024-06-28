@@ -91,6 +91,11 @@ export const ShortcutsDialog: FC<ShortcutsDialogProps> = ({
             <Kbd.Shift />
             <Kbd>P</Kbd>
           </ShortcutItem>
+
+          <ShortcutItem label={t("shortcuts.voiceInput")}>
+            <Kbd.Alt />
+            <Kbd>R</Kbd>
+          </ShortcutItem>
         </div>
       </DialogContent>
     </Dialog>

@@ -241,6 +241,8 @@ export const ChatPage: FC = () => {
     ["shift", "meta", "prevent"],
   );
 
+  useKeyPress("KeyR", toggle, ["alt", "prevent"]);
+
   const isOffline = useNetworkStatus() === "offline";
 
   const sendButtonDisabled =
