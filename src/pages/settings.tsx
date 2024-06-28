@@ -16,20 +16,17 @@ import {
   SelectTrigger,
 } from "@/components/ui/select";
 
-import {
-  Dialog,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-} from "@/components/ui/dialog";
-
+import { AlertButton } from "@/components/alert-button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
+import { useKeyPress } from "@/hooks/useKeyPress";
 import { useMenuState } from "@/hooks/useMenuState";
 import { useMobile } from "@/hooks/useMobile";
 import { useHistoryChat } from "@/store/history-store";
 import { useSettings } from "@/store/settings-store";
-import { useKeyPress } from "@/hooks/useKeyPress";
+import { useTokenUsage } from "@/store/token-usage-store";
+import { useWhisperUsage } from "@/store/whisper-usage-store";
+import { useShallow } from "zustand/react/shallow";
 
 const languages: Record<string, string> = {
   "ua-UA": "Українська",
@@ -60,13 +57,15 @@ export const Settings: FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobile]);
 
-  const [open, setOpen] = useState(false);
   const { t, i18n } = useTranslation();
   const apiKey = useAPIKey((s) => s.apiKey);
   const router = useRouter();
 
   const { theme, setTheme } = useTheme();
-  const clear = useHistoryChat((store) => store.clear);
+
+  const clearHistory = useHistoryChat(useShallow((store) => store.clear));
+  const clearUsage = useTokenUsage(useShallow((store) => store.clear));
+  const clearWhisperUsage = useWhisperUsage(useShallow((store) => store.clear));
 
   const mods = Object.entries(
     t("settings.theme.mode", { returnObjects: true }),
@@ -187,36 +186,38 @@ export const Settings: FC = () => {
 
             <Li>
               <span>{t("settings.clearHistory")}</span>
-              <Button variant={"destructive"} onClick={() => setOpen(true)}>
+              <AlertButton
+                onOk={() => {
+                  clearHistory();
+                  setHistoryCleared(true);
+                }}
+                title={t("settings.clear")}
+                description={t("settings.clearHistoryConfirm")}
+                variant={"destructive"}
+              >
                 {t("settings.clear")}
-              </Button>
+              </AlertButton>
+            </Li>
+
+            <Separator />
+
+            <Li>
+              <span>{t("settings.clearUsage")}</span>
+              <AlertButton
+                onOk={() => {
+                  clearUsage();
+                  clearWhisperUsage();
+                }}
+                title={t("settings.clear")}
+                description={t("settings.clearUsageConfirm")}
+                variant={"destructive"}
+              >
+                {t("settings.clear")}
+              </AlertButton>
             </Li>
           </ul>
         </ScrollArea>
       </div>
-
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent>
-          <DialogHeader className="text-start">
-            {t("settings.clearHistoryConfirm")}
-          </DialogHeader>
-          <DialogFooter className="flex-row justify-end gap-2 sm:gap-0">
-            <Button variant={"secondary"} onClick={() => setOpen(false)}>
-              {t("common.cancel")}
-            </Button>
-            <Button
-              variant={"destructive"}
-              onClick={() => {
-                clear();
-                setOpen(false);
-                setHistoryCleared(true);
-              }}
-            >
-              {t("settings.clear")}
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
     </div>
   );
 };
