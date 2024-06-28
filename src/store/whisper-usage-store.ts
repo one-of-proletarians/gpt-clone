@@ -19,6 +19,7 @@ interface WhisperUsageState {
   extractDataWithChatId: () => ObjectItem;
   extractEntriesWithChatId: () => [string, ItemWithoutChatId][];
   getTotalDuration: () => number;
+  clear: () => void;
 }
 
 export const useWhisperUsage = create<WhisperUsageState>()(
@@ -66,6 +67,12 @@ export const useWhisperUsage = create<WhisperUsageState>()(
                 createdAt: new Date(),
               });
             }
+          });
+        },
+
+        clear() {
+          set((state) => {
+            state.items = [];
           });
         },
       }),

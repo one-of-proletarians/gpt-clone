@@ -25,6 +25,7 @@ interface TokenUsageState {
   setTokenUsage: (usage: Usage) => void;
   setTitleUsage: (titleUsage: Usage) => void;
   setTTSUsage: (key: TTSKey, nUsage: number) => void;
+  clear: () => void;
 }
 
 type RestUsage = { titleUsage?: Usage; usage?: Usage };
@@ -107,6 +108,8 @@ export const useTokenUsage = create<TokenUsageState>()(
             state.items[uid] = updateAudioUsage(item, nUsage, key);
           });
         },
+
+        clear: () => set({ items: {} }),
       }),
       { name: "token-usage" },
     ),
