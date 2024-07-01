@@ -23,6 +23,6 @@ export const Kbd: KbdWithStaticProps = ({ children }) => (
 Kbd.Slash = () => <Kbd>/</Kbd>;
 Kbd.Escape = () => <Kbd>Esc</Kbd>;
 Kbd.Shift = () => <Kbd>Shift</Kbd>;
-Kbd.Backspace = () => <Kbd>Backspace</Kbd>;
+Kbd.Backspace = () => <Kbd>⌫</Kbd>;
 Kbd.Meta = () => <Kbd>{checkMacOS() ? "⌘" : "Ctrl"}</Kbd>;
 Kbd.Alt = () => <Kbd>{checkMacOS() ? "⌥" : "Alt"}</Kbd>;
