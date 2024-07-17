@@ -8,7 +8,7 @@ export const useStopScrollPropagation = <T extends HTMLElement>() => {
   useEffect(() => {
     const element = ref.current;
 
-    if (!element || element.clientWidth === element.scrollWidth) return;
+    if (!element) return;
 
     element.addEventListener("touchmove", handleStopPropagation);
     element.addEventListener("mousemove", handleStopPropagation);
