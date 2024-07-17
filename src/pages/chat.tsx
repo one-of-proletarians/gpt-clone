@@ -70,7 +70,7 @@ export const ChatPage: FC = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const clearFileRef = useRef<FileHandler | undefined>();
 
-  const { toggle, transcript, isRecording, isLoading } = useRecorder();
+  const { toggle, cancel, transcript, isRecording, isLoading } = useRecorder();
 
   const chatModel = useHistoryChat((store) => store.chats[chatId]?.model);
 
@@ -420,7 +420,7 @@ export const ChatPage: FC = () => {
       </div>
 
       <UsageDialog />
-      {isRecording && <VoiceRecorder onStop={toggle} />}
+      {isRecording && <VoiceRecorder onStop={toggle} onCancel={cancel} />}
     </>
   );
 };

@@ -1,9 +1,13 @@
 import { useKeyPress } from "@/hooks/useKeyPress";
 import { memo, useEffect, useRef } from "react";
 import { Dialog, DialogContent } from "./ui/dialog";
+import { ChevronRight, X } from "lucide-react";
+import { Tooltip } from "./tooltip";
+import { useTranslation } from "react-i18next";
 
 interface VoiceRecorderProps {
   onStop: () => void;
+  onCancel: () => void;
 }
 
 const WIDTH = 400;
@@ -131,86 +135,104 @@ function visualize(
   );
 }
 
-export const VoiceRecorder = memo<VoiceRecorderProps>(({ onStop }) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const mediaStreamRef = useRef<MediaStream | null>(null);
-  const animationRef = useRef<number | null>(null);
-  const analyserRef = useRef<AnalyserNode | null>(null);
-  const audioContextRef = useRef<AudioContext | null>(null);
+export const VoiceRecorder = memo<VoiceRecorderProps>(
+  ({ onStop, onCancel }) => {
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const mediaStreamRef = useRef<MediaStream | null>(null);
+    const animationRef = useRef<number | null>(null);
+    const analyserRef = useRef<AnalyserNode | null>(null);
+    const audioContextRef = useRef<AudioContext | null>(null);
+    const { t } = useTranslation();
 
-  useEffect(() => {
-    if (!canvasRef.current) return;
+    useEffect(() => {
+      if (!canvasRef.current) return;
 
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d")!;
-    const audioContext = new AudioContext();
-    audioContextRef.current = audioContext;
-    const analyser = audioContext.createAnalyser();
-    const freqs = new Uint8Array(analyser.frequencyBinCount);
-    analyserRef.current = analyser;
+      const canvas = canvasRef.current;
+      const ctx = canvas.getContext("2d")!;
+      const audioContext = new AudioContext();
+      audioContextRef.current = audioContext;
+      const analyser = audioContext.createAnalyser();
+      const freqs = new Uint8Array(analyser.frequencyBinCount);
+      analyserRef.current = analyser;
 
-    let isCancelled = false;
+      let isCancelled = false;
 
-    navigator.mediaDevices
-      .getUserMedia({ audio: true })
-      .then((stream) => {
-        if (isCancelled) {
-          // Если компонент размонтирован раньше времени, останавливаем дорожки и выходим
-          stream.getTracks().forEach((track) => track.stop());
-          return;
+      navigator.mediaDevices
+        .getUserMedia({ audio: true })
+        .then((stream) => {
+          if (isCancelled) {
+            // Если компонент размонтирован раньше времени, останавливаем дорожки и выходим
+            stream.getTracks().forEach((track) => track.stop());
+            return;
+          }
+          mediaStreamRef.current = stream;
+          const source = audioContext.createMediaStreamSource(stream);
+          source.connect(analyser);
+          visualize(
+            ctx,
+            freqs,
+            analyser,
+            canvasRef,
+            animationRef,
+            audioContextRef,
+          );
+        })
+        .catch(onStreamError);
+
+      return () => {
+        isCancelled = true;
+
+        // Останавливаем анимацию
+        if (animationRef.current !== null) {
+          cancelAnimationFrame(animationRef.current);
         }
-        mediaStreamRef.current = stream;
-        const source = audioContext.createMediaStreamSource(stream);
-        source.connect(analyser);
-        visualize(
-          ctx,
-          freqs,
-          analyser,
-          canvasRef,
-          animationRef,
-          audioContextRef,
-        );
-      })
-      .catch(onStreamError);
 
-    return () => {
-      isCancelled = true;
-
-      // Останавливаем анимацию
-      if (animationRef.current !== null) {
-        cancelAnimationFrame(animationRef.current);
-      }
-
-      // Останавливаем все аудиодорожки
-      if (mediaStreamRef.current) {
-        mediaStreamRef.current.getTracks().forEach((track) => track.stop());
-      }
-
-      // Отключаем и закрываем аудиоконтекст
-      if (audioContextRef.current) {
-        if (audioContextRef.current.state !== "closed") {
-          audioContextRef.current.close();
+        // Останавливаем все аудиодорожки
+        if (mediaStreamRef.current) {
+          mediaStreamRef.current.getTracks().forEach((track) => track.stop());
         }
-      }
-    };
-  }, []);
 
-  useKeyPress("Enter", onStop);
+        // Отключаем и закрываем аудиоконтекст
+        if (audioContextRef.current) {
+          if (audioContextRef.current.state !== "closed") {
+            audioContextRef.current.close();
+          }
+        }
+      };
+    }, []);
 
-  return (
-    <Dialog open={true}>
-      <DialogContent className="mt-20 items-center justify-center border-none bg-transparent p-0 shadow-none outline-none">
-        <canvas ref={canvasRef} />
+    useKeyPress("Enter", onStop);
+    useKeyPress("Escape", onCancel);
 
-        <button
-          className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-destructive transition-colors hover:bg-destructive/80"
-          onClick={onStop}
-          type="button"
-          tabIndex={-1}
-        >
-          <div className="h-[35%] w-[35%] rounded bg-slate-200"></div>
-        </button>
-      </DialogContent>
-    </Dialog>
-  );
-});
+    return (
+      <Dialog open={true}>
+        <DialogContent className="mt-20 items-center justify-center border-none bg-transparent p-0 shadow-none outline-none">
+          <canvas ref={canvasRef} />
+
+          <div className="flex justify-center gap-10">
+            <Tooltip label={t("common.cancel")} side="bottom">
+              <button
+                className="voice-recorder__button bg-destructive"
+                onClick={onCancel}
+                type="button"
+                tabIndex={-1}
+              >
+                <X />
+              </button>
+            </Tooltip>
+            <Tooltip label={t("common.ok")} side="bottom">
+              <button
+                className="voice-recorder__button bg-white text-black"
+                onClick={onStop}
+                type="button"
+                tabIndex={-1}
+              >
+                <ChevronRight />
+              </button>
+            </Tooltip>
+          </div>
+        </DialogContent>
+      </Dialog>
+    );
+  },
+);

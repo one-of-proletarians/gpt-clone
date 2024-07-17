@@ -2,7 +2,7 @@ import { transcribeAudio } from "@/lib/openai";
 import { getAudioDuration } from "@/lib/utils";
 import { useWhisperUsage } from "@/store/whisper-usage-store";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 let recorder: MediaRecorder;
 const audioChunks: Blob[] = [];
@@ -12,6 +12,7 @@ export const useRecorder = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const [transcript, setTranscript] = useState("");
+  const isCanceledRef = useRef(false);
 
   const recordingStart = async () => {
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -25,10 +26,13 @@ export const useRecorder = () => {
   };
 
   const recordingStop = async () => {
-    setIsLoading(true);
     setIsRecording(false);
-
     recorder.stream.getTracks().forEach((track) => track.stop());
+
+    if (isCanceledRef.current) return;
+
+    setIsLoading(true);
+
     const file = new File(audioChunks, "audio.mp3", { type: "audio/mp3" });
     const result = await transcribeAudio(file);
 
@@ -41,6 +45,7 @@ export const useRecorder = () => {
   };
 
   const start = () => {
+    isCanceledRef.current = false;
     recordingStart().then(() => setIsRecording(true));
   };
 
@@ -56,10 +61,16 @@ export const useRecorder = () => {
     }
   };
 
+  const cancel = () => {
+    isCanceledRef.current = true;
+    stop();
+  };
+
   return {
     toggle,
     start,
     stop,
+    cancel,
     transcript,
     isLoading,
     isRecording,
