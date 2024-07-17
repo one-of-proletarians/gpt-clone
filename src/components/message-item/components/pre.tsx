@@ -9,8 +9,8 @@ export const Pre: FC = (props) => {
 
     if (!pre) return;
 
-    preRef.current.addEventListener("touchmove", handler);
-    preRef.current.addEventListener("mousemove", handler);
+    pre.addEventListener("touchmove", handler);
+    pre.addEventListener("mousemove", handler);
 
     return () => {
       pre.removeEventListener("touchmove", handler);
