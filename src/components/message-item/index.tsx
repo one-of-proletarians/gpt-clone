@@ -27,6 +27,7 @@ import { toast } from "sonner";
 import { A as a } from "./components/a";
 import { Code as code } from "./components/code";
 import { Pre as pre } from "./components/pre";
+import { Span as span } from "./components/span";
 
 import { parseContent } from "@/lib/parseContent";
 import { cn, createChatMessage } from "@/lib/utils";
@@ -205,7 +206,7 @@ export const MessageItem = memo<MessageProps>(
                       rehypePlugins={[rehypeKatex]}
                       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                       // @ts-ignore
-                      components={{ code, pre, a }}
+                      components={{ code, pre, a, span }}
                     >
                       {text}
                     </Markdown>

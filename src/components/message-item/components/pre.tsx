@@ -1,22 +1,8 @@
-import { FC, useEffect, useRef } from "react";
+import { useStopScrollPropagation } from "@/hooks/useStopScrollPropagation";
+import { FC } from "react";
 
-const handler = (e: TouchEvent | MouseEvent) => e.stopPropagation();
 export const Pre: FC = (props) => {
-  const preRef = useRef<HTMLPreElement>(null);
-
-  useEffect(() => {
-    const pre = preRef.current;
-
-    if (!pre) return;
-
-    pre.addEventListener("touchmove", handler);
-    pre.addEventListener("mousemove", handler);
-
-    return () => {
-      pre.removeEventListener("touchmove", handler);
-      pre.removeEventListener("mousemove", handler);
-    };
-  }, [preRef]);
+  const preRef = useStopScrollPropagation<HTMLPreElement>();
 
   return <pre className="relative p-0" ref={preRef} {...props} />;
 };
