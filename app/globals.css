@@ -111,6 +111,10 @@ th {
   text-align: left;
 }
 
+.katex-display {
+  @apply overflow-x-auto overflow-y-hidden;
+}
+
 html,
 body,
 #app {
