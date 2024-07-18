@@ -1,4 +1,12 @@
 export const pricing: Record<string, { input: number; output: number }> = {
+  "gpt-4o-mini": {
+    input: 0.15,
+    output: 0.6,
+  },
+  "gpt-4o-mini-2024-07-18": {
+    input: 0.15,
+    output: 0.6,
+  },
   "gpt-4o": {
     input: 5.0,
     output: 15.0,
