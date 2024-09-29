@@ -13,13 +13,6 @@ import { useCurrentChatId } from "@/store/current_chat_id-store";
 
 const apiKey = useAPIKey.getState().apiKey;
 
-const unsupportedModels = [
-  "gpt-3.5-turbo-instruct-0914",
-  "gpt-4-1106-vision-preview",
-  "gpt-3.5-turbo-16k",
-  "gpt-4-0613",
-];
-
 export const openai = new OpenAI({ apiKey, dangerouslyAllowBrowser: true });
 
 useAPIKey.subscribe((state) => (openai.apiKey = state.apiKey));
@@ -65,8 +58,7 @@ export const getModels = () =>
     .then(
       async ({ data }) =>
         data
-          .filter((model) => model.id.startsWith("gpt-"))
-          .filter((model) => !unsupportedModels.includes(model.id))
+          .filter(({ id }) => id.includes("4o") || id.includes("o1"))
           .map(({ id }) => id)
           .sort() as string[],
     )
