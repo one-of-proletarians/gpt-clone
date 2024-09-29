@@ -251,7 +251,7 @@ export const ChatPage: FC = () => {
   const selectModelDisabled = !!messages.length || isLoading;
   const textareaDisabled = isLoading || isStreamLoading || isOffline;
 
-  const buttonFileDisabled = isLoading || !modelSupportImages || isOffline;
+  const buttonFileDisabled = isLoading || isOffline;
 
   const tabIndex = isMobile && open ? -1 : 0;
 
