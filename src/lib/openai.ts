@@ -52,20 +52,7 @@ export const createChatTitle = (message: string): Promise<string> =>
       .catch(handleAPIError);
   });
 
-export const getModels = () =>
-  openai.models
-    .list()
-    .then(
-      async ({ data }) =>
-        data
-          .filter(({ id }) => id.includes("4o") || id.includes("o1"))
-          .map(({ id }) => id)
-          .sort() as string[],
-    )
-    .catch((e) => {
-      handleAPIError(e);
-      return [];
-    });
+export const getModels = () => Promise.resolve(["gpt-4o", "gpt-4o-mini"]);
 
 interface UseOpenAiParams {
   model: ChatCompletionCreateParamsBase["model"];

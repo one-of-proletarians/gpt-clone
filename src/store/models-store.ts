@@ -15,7 +15,7 @@ interface ModelsState {
 const store = create<ModelsState>()(
   persist(
     (set) => ({
-      model: "gpt-3.5-turbo",
+      model: "gpt-4o",
       models: [],
 
       setModel: (model) => set({ model }),

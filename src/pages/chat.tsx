@@ -246,7 +246,7 @@ export const ChatPage: FC = () => {
   const isOffline = useNetworkStatus() === "offline";
 
   const sendButtonDisabled =
-    !model || !message || isLoading || isFileLoading || isOffline;
+    !(message || imageSrc) || isLoading || isFileLoading || isOffline;
 
   const selectModelDisabled = !!messages.length || isLoading;
   const textareaDisabled = isLoading || isStreamLoading || isOffline;
@@ -270,15 +270,17 @@ export const ChatPage: FC = () => {
         >
           <div className="flex max-w-[100vw] flex-row-reverse items-center justify-between gap-2 p-2 md:flex-row md:justify-normal">
             <div className="flex gap-1">
-              <Button
-                size={"icon"}
-                variant={"ghost"}
-                className="ml-auto md:hidden"
-                onClick={openShareDialog}
-                disabled={!chatId || isOffline}
-              >
-                <Share className="h-4 w-4" />
-              </Button>
+              {false && (
+                <Button
+                  size={"icon"}
+                  variant={"ghost"}
+                  className="ml-auto md:hidden"
+                  onClick={openShareDialog}
+                  disabled={!chatId || isOffline}
+                >
+                  <Share className="h-4 w-4" />
+                </Button>
+              )}
 
               <ChatButton
                 small
@@ -288,11 +290,13 @@ export const ChatPage: FC = () => {
               />
             </div>
 
-            <SelectModel
-              disabled={selectModelDisabled}
-              value={chatModel ?? model ?? ""}
-              tabIndex={tabIndex}
-            />
+            {false && (
+              <SelectModel
+                disabled={selectModelDisabled}
+                value={chatModel ?? model ?? ""}
+                tabIndex={tabIndex}
+              />
+            )}
 
             <div className="flex items-center justify-center gap-2">
               <Button
@@ -318,10 +322,12 @@ export const ChatPage: FC = () => {
 
             <UsageLink />
 
-            <ShareButton
-              onClick={openShareDialog}
-              disabled={!chatId || isOffline}
-            />
+            {false && (
+              <ShareButton
+                onClick={openShareDialog}
+                disabled={!chatId || isOffline}
+              />
+            )}
           </div>
 
           {!messages.length ? (
@@ -399,7 +405,7 @@ export const ChatPage: FC = () => {
                     tabIndex={tabIndex}
                     onClick={() => controller.current?.abort?.()}
                   />
-                ) : message.length ? (
+                ) : message.length || imageSrc ? (
                   <SendButton
                     ref={sendRef}
                     tabIndex={tabIndex}
