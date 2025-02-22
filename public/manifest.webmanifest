@@ -1,68 +1,73 @@
 {
-    "name": "ChatGPT",
-    "short_name": "ChatGPT",
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "#09090a",
-    "lang": "en",
-    "scope": "/",
-    "description": "Use all available models in your familiar interface",
-    "theme_color": "#09090a",
-    "display_override": [
-        "standalone",
-        "fullscreen",
-        "minimal-ui"
-    ],
-    "id": "ChatGPT-PWA",
-    "icons": [
-        {
-            "src": "pwa-64x64.png",
-            "sizes": "64x64",
-            "type": "image/png"
-        },
-        {
-            "src": "pwa-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "pwa-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ],
-    "screenshots": [
-        {
-            "src": "screenshots/1.jpg",
-            "sizes": "1080x2340",
-            "type": "image/jpeg",
-            "label": "Start page",
-            "platform": "android",
-            "form_factor": "narrow"
-        },
-        {
-            "src": "screenshots/2.jpg",
-            "sizes": "1080x2340",
-            "type": "image/jpeg",
-            "label": "Home page",
-            "platform": "android",
-            "form_factor": "narrow"
-        },
-        {
-            "src": "screenshots/2.jpg",
-            "sizes": "1080x2340",
-            "type": "image/jpeg",
-            "label": "Settings page",
-            "platform": "android",
-            "form_factor": "narrow"
-        },
-        {
-            "src": "screenshots/desktop.png",
-            "sizes": "3248x2112",
-            "type": "image/png",
-            "label": "Home page",
-            "platform": "web",
-            "form_factor": "wide"
-        }
-    ]
+  "name": "ChatGPT",
+  "short_name": "ChatGPT",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090a",
+  "lang": "en",
+  "scope": "/",
+  "description": "Use all available models in your familiar interface",
+  "theme_color": "#09090a",
+  "id": "ChatGPT-PWA",
+  "share_target": {
+    "action": "/reading",
+    "method": "GET",
+    "params": {
+      "title": "name",
+      "text": "description",
+      "url": "link"
+    }
+  },
+  "display_override": ["standalone", "fullscreen", "minimal-ui"],
+  "icons": [
+    {
+      "src": "pwa-64x64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/1.jpg",
+      "sizes": "1080x2340",
+      "type": "image/jpeg",
+      "label": "Start page",
+      "platform": "android",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "screenshots/2.jpg",
+      "sizes": "1080x2340",
+      "type": "image/jpeg",
+      "label": "Home page",
+      "platform": "android",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "screenshots/2.jpg",
+      "sizes": "1080x2340",
+      "type": "image/jpeg",
+      "label": "Settings page",
+      "platform": "android",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "screenshots/desktop.png",
+      "sizes": "3248x2112",
+      "type": "image/png",
+      "label": "Home page",
+      "platform": "web",
+      "form_factor": "wide"
+    }
+  ]
 }

@@ -20,6 +20,7 @@ import { Route as ChatChatIdImport } from './routes/chat/$chatId'
 // Create Virtual Routes
 
 const SettingsLazyImport = createFileRoute('/settings')()
+const ReadingLazyImport = createFileRoute('/reading')()
 const ShareIdLazyImport = createFileRoute('/share/$id')()
 
 // Create/Update Routes
@@ -28,6 +29,11 @@ const SettingsLazyRoute = SettingsLazyImport.update({
   path: '/settings',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/settings.lazy').then((d) => d.Route))
+
+const ReadingLazyRoute = ReadingLazyImport.update({
+  path: '/reading',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/reading.lazy').then((d) => d.Route))
 
 const IndexRoute = IndexImport.update({
   path: '/',
@@ -58,6 +64,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/reading': {
+      id: '/reading'
+      path: '/reading'
+      fullPath: '/reading'
+      preLoaderRoute: typeof ReadingLazyImport
       parentRoute: typeof rootRoute
     }
     '/settings': {
@@ -95,6 +108,7 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren({
   IndexRoute,
+  ReadingLazyRoute,
   SettingsLazyRoute,
   ChatChatIdRoute,
   ShareIdLazyRoute,
