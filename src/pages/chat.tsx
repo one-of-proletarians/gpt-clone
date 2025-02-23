@@ -23,6 +23,7 @@ import { useMenuState } from "@/hooks/useMenuState";
 import { useMobile } from "@/hooks/useMobile";
 import { useNetworkStatus } from "@/hooks/useNetworkStatus";
 import { useRecorder } from "@/hooks/useRecording";
+import { useSharedText } from "@/hooks/useSharedText";
 import { modelSupportsImages } from "@/lib/modelSupportsImages";
 import { createChatTitle, useOpenAI } from "@/lib/openai";
 import { cn, createChatMessage } from "@/lib/utils";
@@ -64,6 +65,8 @@ export const ChatPage: FC = () => {
   const { open, setOpen, toggleMenu } = useMenuState();
 
   const [message, setMessage] = useState("");
+
+  const sharedText = useSharedText(true);
 
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const sendRef = useRef<HTMLButtonElement>(null);
@@ -117,6 +120,12 @@ export const ChatPage: FC = () => {
     trackMouse: true,
     delta: 80,
   });
+
+  useEffect(() => {
+    if (sharedText.length > 0) {
+      setMessage(sharedText);
+    }
+  }, [sharedText]);
 
   useEffect(() => {
     isMobile && setOpen(false);

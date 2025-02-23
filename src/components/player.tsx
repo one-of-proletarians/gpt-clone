@@ -11,6 +11,7 @@ import { Tooltip } from "./tooltip";
 import { Button } from "./ui/button";
 import { Slider } from "./ui/slider";
 import { useTokenUsage } from "@/store/token-usage-store";
+import { useLocation } from "@tanstack/react-router";
 
 const rates = [0.5, 0.75, 1, 1.5, 1.75, 2];
 const audio = new Audio();
@@ -127,6 +128,8 @@ export const Player: FC = () => {
   };
 
   const isMobile = useMobile();
+  const { pathname } = useLocation();
+  const isReading = pathname === "/reading";
 
   return (
     <div
@@ -137,6 +140,7 @@ export const Player: FC = () => {
         {
           "translate-y-[3.7rem]": visible && !isMobile,
           "translate-y-28": visible && isMobile,
+          "translate-y-16": visible && isMobile && isReading,
         },
       )}
     >

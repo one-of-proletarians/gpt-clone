@@ -17,6 +17,11 @@ self.addEventListener("fetch", (event) => {
 
   if (url.pathname.startsWith("/api/")) {
     return;
+  } else if (url.pathname.startsWith("/reading")) {
+    const formData = event.request.formData();
+    const text = formData.get("text");
+
+    localStorage.setItem("shared_target--text", text);
   }
 
   event.respondWith(
