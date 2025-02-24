@@ -10,9 +10,8 @@
   "theme_color": "#09090a",
   "id": "ChatGPT-PWA",
   "share_target": {
-    "action": "/reading",
-    "method": "POST",
-    "enctype": "multipart/form-data",
+    "action": "/chat",
+    "method": "GET",
     "params": {
       "title": "title",
       "text": "text",

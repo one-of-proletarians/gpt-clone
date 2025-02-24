@@ -13,12 +13,12 @@ export const Reading: FC = () => {
   const [open, setOpen] = useState(false);
 
   const onVoice = () => {
-    setText(text);
+    setText(text ?? "");
     setOpen(false);
   };
 
   useEffect(() => {
-    setOpen(text.length > 0);
+    setOpen(!!text);
   }, [text]);
 
   return (

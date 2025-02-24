@@ -66,7 +66,7 @@ export const ChatPage: FC = () => {
 
   const [message, setMessage] = useState("");
 
-  const sharedText = useSharedText(true);
+  const sharedText = useSharedText();
 
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const sendRef = useRef<HTMLButtonElement>(null);
@@ -122,7 +122,7 @@ export const ChatPage: FC = () => {
   });
 
   useEffect(() => {
-    if (sharedText.length > 0) {
+    if (sharedText) {
       setMessage(sharedText);
     }
   }, [sharedText]);
