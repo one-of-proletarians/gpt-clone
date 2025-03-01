@@ -3,6 +3,7 @@ import { ChatButton } from "@/components/chat-button";
 import { Fallback } from "@/components/fallback";
 import { MicrophoneButton } from "@/components/microphone-button";
 import { ScrollButton } from "@/components/scroll-button";
+import { SelectGallery } from "@/components/select-gallery";
 import { SelectModel } from "@/components/select-model";
 import { SendButton } from "@/components/send-button";
 import { ShareButton } from "@/components/share-button";
@@ -28,6 +29,7 @@ import { modelSupportsImages } from "@/lib/modelSupportsImages";
 import { createChatTitle, useOpenAI } from "@/lib/openai";
 import { cn, createChatMessage } from "@/lib/utils";
 import { useCurrentChatId } from "@/store/current_chat_id-store";
+import { useFileSelect } from "@/store/file_select-store";
 import { useHistoryChat } from "@/store/history-store";
 import { shouldCreateTitle, useInstruction } from "@/store/instructions-store";
 import { useModel } from "@/store/models-store";
@@ -49,6 +51,7 @@ import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import { useSwipeable } from "react-swipeable";
 import TextareaAutosize from "react-textarea-autosize";
+import { useShallow } from "zustand/react/shallow";
 
 const MessageItem = lazy(() => import("@/components/message-item/index.tsx"));
 
@@ -83,11 +86,11 @@ export const ChatPage: FC = () => {
 
   const scrollWhenResponding = useSettings((s) => s.scrollWhenResponding);
 
-  const [imageSrc, setImageSrc] = useState<string>();
-
-  const [isFileLoading, setIsFileLoading] = useState(false);
+  const [imagesLoading, setImagesLoading] = useState(false);
 
   const openShareDialog = useShare((s) => s.openShareDialog);
+
+  const hasFiles = useFileSelect(useShallow((s) => s.files.length > 0));
 
   const { currentChatId, setCurrentChatId } = useCurrentChatId();
   const [
@@ -148,11 +151,6 @@ export const ChatPage: FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [response]);
 
-  const handleFileChange = (src?: string) => {
-    setImageSrc(src);
-    textareaRef.current?.focus();
-  };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     sendMessage();
@@ -174,7 +172,7 @@ export const ChatPage: FC = () => {
 
     const { currentChatId } = useCurrentChatId.getState();
 
-    const content = createChatMessage(modelSupportImages, imageSrc!, message);
+    const content = createChatMessage(modelSupportImages, message);
 
     addMessage({ role: "user", content }, currentChatId);
     addMessage({ role: "assistant", content: "" }, currentChatId);
@@ -255,7 +253,7 @@ export const ChatPage: FC = () => {
   const isOffline = useNetworkStatus() === "offline";
 
   const sendButtonDisabled =
-    !(message || imageSrc) || isLoading || isFileLoading || isOffline;
+    !(message || hasFiles) || isLoading || isOffline || imagesLoading;
 
   const selectModelDisabled = !!messages.length || isLoading;
   const textareaDisabled = isLoading || isStreamLoading || isOffline;
@@ -383,17 +381,15 @@ export const ChatPage: FC = () => {
             />
 
             <form
-              className="relative z-10 mx-2 flex w-full bg-background md:w-[75%] xl:w-[60%]"
+              className="relative z-10 flex w-full bg-background md:w-[75%] xl:w-[60%]"
               onSubmit={handleSubmit}
               noValidate
             >
               <div className="relative h-full min-h-16 w-full">
+                <SelectGallery />
                 <ButtonFile
-                  onFileChange={handleFileChange}
-                  onLoadChange={setIsFileLoading}
                   disabled={buttonFileDisabled}
-                  ref={clearFileRef}
-                  className="rounded-full"
+                  onChangeLoaded={setImagesLoading}
                 />
                 <Textarea
                   autoFocus
@@ -406,7 +402,10 @@ export const ChatPage: FC = () => {
                   placeholder={placeholder}
                   onChange={(e) => setMessage(e.target.value.trimStart())}
                   maxRows={+import.meta.env.VITE_MAX_TEXTAREA_ROWS}
-                  className="resize-none rounded-[2rem] border-none bg-sidebar p-4 px-14 text-lg !ring-0 focus-visible:ring-gray-700"
+                  className={cn(
+                    "resize-none border-none bg-sidebar p-4 px-14 text-lg !ring-0 focus-visible:ring-gray-700 md:rounded-[2rem]",
+                    { "pt-24": hasFiles },
+                  )}
                 />
 
                 {isStreamLoading ? (
@@ -414,7 +413,7 @@ export const ChatPage: FC = () => {
                     tabIndex={tabIndex}
                     onClick={() => controller.current?.abort?.()}
                   />
-                ) : message.length || imageSrc ? (
+                ) : message.length || hasFiles ? (
                   <SendButton
                     ref={sendRef}
                     tabIndex={tabIndex}

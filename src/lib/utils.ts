@@ -5,6 +5,7 @@ import {
 } from "openai/resources/index.mjs";
 import { twMerge } from "tailwind-merge";
 import { pricing } from "../components/usage/tabs/price/pricing";
+import { useFileSelect } from "@/store/file_select-store";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -39,15 +40,22 @@ export const formatFileSize = Intl.NumberFormat("en-US", {
 
 export const createChatMessage = (
   editImage: boolean,
-  imageURL: string | null,
   text: string,
-): ChatCompletionContentPart[] =>
-  editImage && imageURL
-    ? [
-        { type: "image_url", image_url: { url: imageURL! } },
-        { type: "text", text },
-      ]
-    : [{ type: "text", text }];
+): ChatCompletionContentPart[] => {
+  if (editImage) {
+    const files = useFileSelect.getState().files;
+    const ret: ChatCompletionContentPart[] = files.map(({ url }) => ({
+      type: "image_url",
+      image_url: { url },
+    }));
+
+    ret.push({ type: "text", text });
+
+    return ret;
+  }
+
+  return [{ type: "text", text }];
+};
 
 export const checkMacOS = () => /macintosh|mac os x/i.test(navigator.userAgent);
 
@@ -103,3 +111,18 @@ export const calculateUsageCost = (
     return 0;
   }
 };
+
+export const imageToBase64 = async (file: File): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      if (e.target) resolve(e.target.result as string);
+      else reject("[ERROR]: convert image to file");
+    };
+
+    reader.readAsDataURL(file);
+  });
+};
+
+export const getImageNameFromURL = (url: string) => url.split("/").at(-1)!;

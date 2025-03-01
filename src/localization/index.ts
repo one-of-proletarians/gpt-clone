@@ -5,7 +5,6 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import en from "./languages/en.json";
 import ru from "./languages/ru.json";
 import de from "./languages/de.json";
-import tr from "./languages/tr.json";
 import ua from "./languages/ua.json";
 
 i18n
@@ -14,7 +13,7 @@ i18n
   .init({
     debug: import.meta.env.DEV,
     fallbackLng: "en",
-    resources: { en, ru, de, tr, ua },
+    resources: { en, ru, de, ua },
   });
 
 export default i18n;

@@ -1,28 +1,28 @@
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 
 interface ParseContentResult {
-  image: string | null;
+  images: string[];
   text: string;
 }
 export const parseContent = (
   content: ChatCompletionMessageParam["content"],
 ): ParseContentResult => {
-  if (!content) return { image: null, text: "" };
+  if (!content) return { images: [], text: "" };
 
   if (typeof content === "string") {
-    return { image: null, text: content };
+    return { images: [], text: content };
   }
 
   let text = "";
-  let image: string | null = null;
+  const images: Array<string> = [];
 
   content.forEach((item) => {
     if (item.type === "text") {
       text = item.text;
     } else if (item.type === "image_url") {
-      image = item.image_url.url;
+      images.push(item.image_url.url);
     }
   });
 
-  return { image, text };
+  return { images, text };
 };

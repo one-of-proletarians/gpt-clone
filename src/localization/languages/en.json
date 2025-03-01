@@ -1,170 +1,176 @@
 {
-    "translation": {
-        "common": {
-            "title": "ChatGPT",
-            "remove": "Remove",
-            "rename": "Rename",
-            "save": "Save",
-            "cancel": "Cancel",
-            "chat": "Chat",
-            "copyCode": "Copy Code",
-            "copyCodeSuccess": "Code Copied",
-            "copySuccess": "Copied to clipboard",
-            "temperature": "Temperature",
-            "copy": "Copy",
-            "play": "Play",
-            "download": "Download",
-            "close": "Close",
-            "speed": "Speed",
-            "ok": "Ok",
-            "retry": "Retry",
-            "you": "You",
-            "edit": "Edit",
-            "size": "Size",
-            "fileTooLarge": "File is too large",
-            "removeImage": "Remove image",
-            "returnImage": "Return image",
-            "share": "Share",
-            "selectText": "Select text",
-            "online": "Online",
-            "price": "Price",
-            "saveKey": {
-                "label": "Save Key",
-                "tooltip": "Saves your API key to localStorage for future use."
-            },
-            "next": {
-                "label": "Next",
-                "tooltip": "Proceed to the next step."
-            }
-        },
-        "index": {
-            "placeholder": "Enter your ChatGPT API key.",
-            "invalidKey": "Invalid API key",
-            "next": "Next"
-        },
-        "chat": {
-            "welcome": "How can I help you today?",
-            "disclaimer": "ChatGPT may make mistakes. We recommend verifying important information.",
-            "placeholder": "Message ChatGPT...",
-            "newChat": "New Chat",
-            "send": "Send",
-            "close": "Close sidebar",
-            "open": "Open sidebar",
-            "uploadFile": "Upload file",
-            "onlyGPTVision": "Only with gpt-4-vision-preview model",
-            "chatSize": "Chat size"
-        },
-        "sidebar": {
-            "logout": "Logout",
-            "profile": "Profile",
-            "settings": "Settings",
-            "customInstructions": "Customize ChatGPT",
-            "more": "More"
-        },
-        "instruction": {
-            "title": "Food for Thought",
-            "showHints": "Show hints",
-            "hideHints": "Hide hints",
-            "description": "Custom instructions",
-            "tooltip": {
-                "link": "Learn more",
-                "text": " about custom instructions and how they help ChatGPT give you better responses."
-            },
-            "enableForNew": "Enable for new chats",
-            "gptDescription": "Tell ChatGPT how you want it to respond.",
-            "userDescription": "What should ChatGPT know about you to provide better responses?",
-            "user": [
-                "Where are you located?",
-                "What is your job?",
-                "What are your hobbies and interests?",
-                "What topics can you talk about for hours?",
-                "What are your personal goals?"
-            ],
-            "gpt": [
-                "How formal or informal should ChatGPT's tone be?",
-                "How long or short should the responses be?",
-                "How should you be addressed?",
-                "Can ChatGPT have opinions on topics, or should it remain neutral?"
-            ]
-        },
-        "settings": {
-            "title": "Settings",
-            "language": "Language",
-            "clearHistory": "Clear History",
-            "clear": "Clear",
-            "back": "Back",
-            "clearHistoryConfirm": "This will permanently delete all chat history",
-            "clearHistoryAtLogout": "Clear the chat history when exiting",
-            "clearAudioCacheAtLogout": "Clear the audio cache on exit",
-            "clearUsage": "Clear Usage",
-            "clearUsageConfirm": "This will permanently delete all usage data",
-            "scrollWhenResponding": "Automatic scrolling when responding",
-            "theme": {
-                "label": "Theme",
-                "mode": {
-                    "dark": "Dark",
-                    "light": "Light",
-                    "system": "System"
-                }
-            }
-        },
-        "record": {
-            "title": "Recording",
-            "stop": "Stop",
-            "pause": "Pause",
-            "resume": "Resume"
-        },
-        "errors": {
-            "insufficient_quota": "You have exceeded your current quota, please check your plan and billing details",
-            "invalid_request_error": "Incorrectly provided API key",
-            "server_error": "Invalid authorization header",
-            "default": "An error occurred",
-            "networkError": "Network error",
-            "tokens": "Insufficient tokens"
-        },
-        "share": {
-            "title": "Share ChatGPT Link",
-            "copyLink": "Copy Link",
-            "continueChat": "Continue Chat",
-            "linkNotFound": "Link not found"
-        },
-        "shortcuts": {
-            "title": "Keyboard Shortcuts",
-            "openNewChat": "Open New Chat",
-            "removeChat": "Remove Chat",
-            "inputFocus": "Focus Chat Input",
-            "toggleSidebar": "Toggle Sidebar",
-            "setUserInstructions": "Set User Instructions",
-            "showShortcuts": "Show Shortcuts",
-            "share": "Share",
-            "voiceInput": "Voice Input"
-        },
-        "usage": {
-            "title": "Statistics Summary",
-            "shortTitle": "Statistics",
-            "response": "Response",
-            "prompt": "Prompt",
-            "total": "Total",
-            "name": "Chat Name",
-            "openFullUsage": "Full Statistics",
-            "costOfUse": "Cost of Use",
-            "price": {
-                "title": "Price",
-                "description": "Prices are specified for 1M tokens",
-                "tokens": "Token Price",
-                "table": {
-                    "model": "Model",
-                    "input": "Input",
-                    "output": "Output"
-                }
-            },
-            "table": {
-                "title": "Title",
-                "name": "Name",
-                "total": "Total",
-                "prompt": "Prompt",
-                "response": "Response"
-            }
+  "translation": {
+    "common": {
+      "title": "ChatGPT",
+      "remove": "Remove",
+      "rename": "Rename",
+      "save": "Save",
+      "cancel": "Cancel",
+      "chat": "Chat",
+      "copyCode": "Copy Code",
+      "copyCodeSuccess": "Code Copied",
+      "copySuccess": "Copied to clipboard",
+      "temperature": "Temperature",
+      "copy": "Copy",
+      "play": "Play",
+      "download": "Download",
+      "close": "Close",
+      "speed": "Speed",
+      "ok": "Ok",
+      "retry": "Retry",
+      "you": "You",
+      "edit": "Edit",
+      "size": "Size",
+      "fileTooLarge": "File is too large",
+      "removeImage": "Remove image",
+      "returnImage": "Return image",
+      "share": "Share",
+      "selectText": "Select text",
+      "online": "Online",
+      "price": "Price",
+      "saveKey": {
+        "label": "Save Key",
+        "tooltip": "Saves your API key to localStorage for future use."
+      },
+      "next": {
+        "label": "Next",
+        "tooltip": "Proceed to the next step."
+      }
+    },
+    "index": {
+      "placeholder": "Enter your ChatGPT API key.",
+      "invalidKey": "Invalid API key",
+      "next": "Next"
+    },
+    "chat": {
+      "welcome": "How can I help you today?",
+      "disclaimer": "ChatGPT may make mistakes. We recommend verifying important information.",
+      "placeholder": "Message ChatGPT...",
+      "newChat": "New Chat",
+      "send": "Send",
+      "close": "Close sidebar",
+      "open": "Open sidebar",
+      "uploadFile": "Upload file",
+      "onlyGPTVision": "Only with gpt-4-vision-preview model",
+      "chatSize": "Chat size"
+    },
+    "sidebar": {
+      "logout": "Logout",
+      "profile": "Profile",
+      "settings": "Settings",
+      "customInstructions": "Customize ChatGPT",
+      "more": "More"
+    },
+    "instruction": {
+      "title": "Food for Thought",
+      "showHints": "Show hints",
+      "hideHints": "Hide hints",
+      "description": "Custom instructions",
+      "tooltip": {
+        "link": "Learn more",
+        "text": " about custom instructions and how they help ChatGPT give you better responses."
+      },
+      "enableForNew": "Enable for new chats",
+      "gptDescription": "Tell ChatGPT how you want it to respond.",
+      "userDescription": "What should ChatGPT know about you to provide better responses?",
+      "user": [
+        "Where are you located?",
+        "What is your job?",
+        "What are your hobbies and interests?",
+        "What topics can you talk about for hours?",
+        "What are your personal goals?"
+      ],
+      "gpt": [
+        "How formal or informal should ChatGPT's tone be?",
+        "How long or short should the responses be?",
+        "How should you be addressed?",
+        "Can ChatGPT have opinions on topics, or should it remain neutral?"
+      ]
+    },
+    "settings": {
+      "title": "Settings",
+      "language": "Language",
+      "clearHistory": "Clear History",
+      "clear": "Clear",
+      "back": "Back",
+      "clearHistoryConfirm": "This will permanently delete all chat history",
+      "clearHistoryAtLogout": "Clear the chat history when exiting",
+      "clearAudioCacheAtLogout": "Clear the audio cache on exit",
+      "clearUsage": "Clear Usage",
+      "clearUsageConfirm": "This will permanently delete all usage data",
+      "scrollWhenResponding": "Automatic scrolling when responding",
+      "theme": {
+        "label": "Theme",
+        "mode": {
+          "dark": "Dark",
+          "light": "Light",
+          "system": "System"
         }
+      }
+    },
+    "record": {
+      "title": "Recording",
+      "stop": "Stop",
+      "pause": "Pause",
+      "resume": "Resume"
+    },
+    "errors": {
+      "insufficient_quota": "You have exceeded your current quota, please check your plan and billing details",
+      "invalid_request_error": "Incorrectly provided API key",
+      "server_error": "Invalid authorization header",
+      "default": "An error occurred",
+      "networkError": "Network error",
+      "tokens": "Insufficient tokens",
+      "maxFilesCount": "Maximum of {{count}} images",
+      "imageUpload": "Couldn't upload image: {{name}}"
+    },
+    "share": {
+      "title": "Share ChatGPT Link",
+      "copyLink": "Copy Link",
+      "continueChat": "Continue Chat",
+      "linkNotFound": "Link not found"
+    },
+    "shortcuts": {
+      "title": "Keyboard Shortcuts",
+      "openNewChat": "Open New Chat",
+      "removeChat": "Remove Chat",
+      "inputFocus": "Focus Chat Input",
+      "toggleSidebar": "Toggle Sidebar",
+      "setUserInstructions": "Set User Instructions",
+      "showShortcuts": "Show Shortcuts",
+      "share": "Share",
+      "voiceInput": "Voice Input"
+    },
+    "usage": {
+      "title": "Statistics Summary",
+      "shortTitle": "Statistics",
+      "response": "Response",
+      "prompt": "Prompt",
+      "total": "Total",
+      "name": "Chat Name",
+      "openFullUsage": "Full Statistics",
+      "costOfUse": "Cost of Use",
+      "price": {
+        "title": "Price",
+        "description": "Prices are specified for 1M tokens",
+        "tokens": "Token Price",
+        "table": {
+          "model": "Model",
+          "input": "Input",
+          "output": "Output"
+        }
+      },
+      "table": {
+        "title": "Title",
+        "name": "Name",
+        "total": "Total",
+        "prompt": "Prompt",
+        "response": "Response"
+      },
+      "fileButton": {
+        "camera": "Camera",
+        "file": "Gallery"
+      }
     }
+  }
 }
