@@ -39,7 +39,7 @@ export const useFileSelect = create<FileSelect>()(
         store.files = store.files.filter((file) => {
           if (file.blobLink === index) {
             const imageName = getImageNameFromURL(file.url);
-            fetch(`${import.meta.env.VITE_IMAGE_SERVER}?name=${imageName}`, {
+            fetch(`${import.meta.env.VITE_IMAGE_SERVER}/image?name=${imageName}`, {
               method: "DELETE",
             })
               .then(() => console.info("Файл из сервера удален"))

@@ -90,7 +90,7 @@ export const ChatPage: FC = () => {
 
   const openShareDialog = useShare((s) => s.openShareDialog);
 
-  const hasFiles = useFileSelect(useShallow((s) => s.files.length > 0));
+  const [hasFiles, clearFiles] = useFileSelect(useShallow((s) => [s.files.length > 0, s.clear]));
 
   const { currentChatId, setCurrentChatId } = useCurrentChatId();
   const [
@@ -154,6 +154,7 @@ export const ChatPage: FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     sendMessage();
+    clearFiles();
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {

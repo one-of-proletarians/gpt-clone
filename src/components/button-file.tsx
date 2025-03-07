@@ -76,7 +76,7 @@ export const ButtonFile: FC<FileButtonProps> = memo(
         const body = new FormData();
         body.append("image", image);
 
-        const response = fetch(import.meta.env.VITE_IMAGE_SERVER, {
+        const response = fetch(import.meta.env.VITE_IMAGE_SERVER + "/image", {
           method: "POST",
           body,
         })
